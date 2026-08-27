@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Profile - Skill Loop</title>
+</head>
+
+<body>
+
+    <h1>Create Your Skill Loop Profile</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <label>Name:</label><br>
+        <input type="text" name="name" required>
+        <br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required>
+        <br><br>
+
+        <label>Phone:</label><br>
+        <input type="text" name="phone">
+        <br><br>
+
+        <label>Bio:</label><br>
+        <textarea name="bio"></textarea>
+        <br><br>
+
+        <label>Skills I Can Teach:</label><br>
+        <input type="text" name="skills"
+               placeholder="Example: ML, Python, Video Editing">
+        <br><br>
+
+        <label>Skills I Want To Learn:</label><br>
+        <input type="text" name="learning_skills"
+               placeholder="Example: AI, Web Development">
+        <br><br>
+
+        <label>Profile Image:</label><br>
+        <input type="file" name="profile_image">
+        <br><br>
+
+        <button type="submit">Create Profile</button>
+
+    </form>
+
+</body>
+</html>

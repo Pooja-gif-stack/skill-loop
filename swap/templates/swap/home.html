@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skill Loop</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: rgba(0, 0, 0, 0.20);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        .nav-links a:hover {
+            color: #ffe66d;
+        }
+
+        .hero {
+            min-height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ffe66d;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: #ffe66d;
+            color: #333;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+
+        .card {
+            width: 230px;
+            padding: 25px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            🔄 Skill Loop
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="#">Skills</a>
+            <a href="#">Mentors</a>
+            <a href="#">Login</a>
+        </div>
+
+    </nav>
+
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Learn. Share. <span>Exchange.</span>
+            </h1>
+
+            <p>
+                Welcome to Skill Loop — a platform where students
+                can exchange skills, learn from each other and
+                connect with mentors.
+            </p>
+
+            <!-- Get Started button -->
+            <a href="{% url 'create_profile' %}" class="btn">
+                Get Started
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section class="features">
+
+        <div class="card">
+            <div class="icon">🎯</div>
+
+            <h3>Skill Exchange</h3>
+
+            <p>
+                Share your skills and learn new skills
+                from other students.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">👨‍🏫</div>
+
+            <h3>Mentor Booking</h3>
+
+            <p>
+                Connect with mentors and book
+                learning sessions.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">📱</div>
+
+            <h3>QR Verification</h3>
+
+            <p>
+                Verify your skills using
+                QR-based verification.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">📅</div>
+
+            <h3>Events</h3>
+
+            <p>
+                Discover and participate in
+                skill-based events.
+            </p>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
