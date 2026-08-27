@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reciprocal Learning - SkillLoop</title>
+</head>
+
+<body>
+
+    <h1>🔄 Reciprocal Learning Matches</h1>
+
+    {% if matches %}
+
+        {% for match in matches %}
+
+            <div>
+                <h2>{{ match.learner.name }} → {{ match.teacher.name }}</h2>
+
+                <p>
+                    <strong>{{ match.learner.name }}</strong>
+                    wants to learn
+                    <strong>{{ match.skill }}</strong>
+                    from
+                    <strong>{{ match.teacher.name }}</strong>.
+                </p>
+            </div>
+
+            <hr>
+
+        {% endfor %}
+
+    {% else %}
+
+        <h2>No matches found yet.</h2>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/">Back to Home</a>
+
+</body>
+</html>
+def send_request(request, receiver_id):
+    receiver = UserProfile.objects.get(id=receiver_id)
+
+    if request.method == "POST":
+        skill = request.POST.get("skill")
+        message = request.POST.get("message")
+
+        # Temporary sender for testing
+        sender = UserProfile.objects.first()
+
+        SkillRequest.objects.create(
+            sender=sender,
+            receiver=receiver,
+            skill=skill,
+            message=message
+        )
+
+        return redirect("home")
+
+    return render(
+        request,
+        "swap/send_request.html",
+        {"receiver": receiver}
+    )

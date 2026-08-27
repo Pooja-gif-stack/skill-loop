@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Skill Request - Skill Loop</title>
+</head>
+
+<body>
+
+    <h1>Send Skill Request</h1>
+
+    <h2>Request to: {{ receiver.name }}</h2>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>Skill I Want to Learn:</label><br>
+        <input type="text" name="skill" required>
+        <br><br>
+
+        <label>Message:</label><br>
+        <textarea name="message"
+                  placeholder="Write a short message"></textarea>
+        <br><br>
+
+        <button type="submit">Send Request</button>
+
+    </form>
+
+    <br>
+
+    <a href="/reciprocal/">Back to Matches</a>
+
+</body>
+</html>
