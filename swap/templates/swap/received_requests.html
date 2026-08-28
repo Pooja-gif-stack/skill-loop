@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Received Requests - Skill Loop</title>
+</head>
+
+<body>
+
+    <h1>📩 Skill Requests</h1>
+
+    {% if requests %}
+
+        {% for request in requests %}
+
+            <div>
+                <h2>Request from {{ request.sender.name }}</h2>
+
+                <p>
+                    <strong>Skill:</strong>
+                    {{ request.skill }}
+                </p>
+
+                <p>
+                    <strong>Message:</strong>
+                    {{ request.message }}
+                </p>
+
+                <p>
+                    <strong>Status:</strong>
+                    {{ request.status }}
+                </p>
+
+                <button>Accept</button>
+                <button>Reject</button>
+            </div>
+
+            <hr>
+
+        {% endfor %}
+
+    {% else %}
+
+        <h2>No requests received yet.</h2>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/">Back to Home</a>
+
+</body>
+</html>

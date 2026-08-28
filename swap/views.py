@@ -82,3 +82,15 @@ def send_request(request, receiver_id):
         'swap/send_request.html',
         {'receiver': receiver}
     )
+def received_requests(request):
+    receiver = UserProfile.objects.first()
+
+    requests = SkillRequest.objects.filter(
+        receiver=receiver
+    ).order_by('-created_at')
+
+    return render(
+        request,
+        'swap/received_requests.html',
+        {'requests': requests}
+    )
