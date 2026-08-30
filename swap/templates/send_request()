@@ -1,0 +1,29 @@
+def send_request(request, receiver_id):
+    receiver = UserProfile.objects.get(id=receiver_id)
+
+    profiles = UserProfile.objects.exclude(id=receiver_id)
+
+    if request.method == 'POST':
+        skill = request.POST.get('skill')
+        message = request.POST.get('message')
+        sender_id = request.POST.get('sender_id')
+
+        sender = UserProfile.objects.get(id=sender_id)
+
+        SkillRequest.objects.create(
+            sender=sender,
+            receiver=receiver,
+            skill=skill,
+            message=message
+        )
+
+        return redirect('home')
+
+    return render(
+        request,
+        'swap/send_request.html',
+        {
+            'receiver': receiver,
+            'profiles': profiles
+        }
+    )

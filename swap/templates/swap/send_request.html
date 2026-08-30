@@ -6,7 +6,7 @@
 
 <body>
 
-    <h1>Send Skill Request</h1>
+    <h1>📩 Send Skill Request</h1>
 
     <p>
         Request to:
@@ -17,33 +17,44 @@
 
         {% csrf_token %}
 
-        <label>Select Your Profile:</label><br>
+        <label>Select Your Profile:</label>
+        <br><br>
 
         <select name="sender_id" required>
-            <option value="">-- Select your profile --</option>
+
+            <option value="">
+                -- Select Your Profile --
+            </option>
 
             {% for profile in profiles %}
+
                 <option value="{{ profile.id }}">
-                    {{ profile.name }} - {{ profile.email }}
+                    {{ profile.name }}
                 </option>
+
             {% endfor %}
 
         </select>
 
         <br><br>
 
-        <label>Skill:</label><br>
+        <label>Skill:</label>
+        <br>
+
         <input type="text" name="skill" required>
 
         <br><br>
 
-        <label>Message:</label><br>
-        <textarea name="message"
-                  placeholder="Write your message"></textarea>
+        <label>Message:</label>
+        <br>
+
+        <textarea name="message"></textarea>
 
         <br><br>
 
-        <button type="submit">Send Request</button>
+        <button type="submit">
+            Send Request
+        </button>
 
     </form>
 

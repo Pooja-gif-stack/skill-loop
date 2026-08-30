@@ -13,7 +13,9 @@
         {% for match in matches %}
 
             <div>
-                <h2>{{ match.learner.name }} → {{ match.teacher.name }}</h2>
+                <h2>
+                    {{ match.learner.name }} → {{ match.teacher.name }}
+                </h2>
 
                 <p>
                     <strong>{{ match.learner.name }}</strong>
@@ -22,6 +24,10 @@
                     from
                     <strong>{{ match.teacher.name }}</strong>.
                 </p>
+
+                <a href="{% url 'send_request' match.teacher.id %}">
+                    <button>Send Request</button>
+                </a>
             </div>
 
             <hr>
@@ -40,27 +46,3 @@
 
 </body>
 </html>
-def send_request(request, receiver_id):
-    receiver = UserProfile.objects.get(id=receiver_id)
-
-    if request.method == "POST":
-        skill = request.POST.get("skill")
-        message = request.POST.get("message")
-
-        # Temporary sender for testing
-        sender = UserProfile.objects.first()
-
-        SkillRequest.objects.create(
-            sender=sender,
-            receiver=receiver,
-            skill=skill,
-            message=message
-        )
-
-        return redirect("home")
-
-    return render(
-        request,
-        "swap/send_request.html",
-        {"receiver": receiver}
-    )

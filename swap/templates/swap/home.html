@@ -34,11 +34,17 @@
             font-weight: bold;
         }
 
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
         .nav-links a {
             color: white;
             text-decoration: none;
             margin-left: 25px;
             font-size: 16px;
+            transition: 0.3s;
         }
 
         .nav-links a:hover {
@@ -81,6 +87,7 @@
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         .btn:hover {
@@ -102,6 +109,12 @@
             background: rgba(255, 255, 255, 0.15);
             border-radius: 20px;
             backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.22);
         }
 
         .card .icon {
@@ -117,6 +130,28 @@
             font-size: 14px;
             line-height: 1.5;
         }
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links a {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+        }
     </style>
 </head>
 
@@ -129,10 +164,23 @@
         </div>
 
         <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="#">Skills</a>
-            <a href="#">Mentors</a>
-            <a href="#">Login</a>
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="{% url 'reciprocal_matches' %}">
+                Skills
+            </a>
+
+            <a href="{% url 'received_requests' %}">
+                Requests
+            </a>
+
+            <a href="{% url 'login' %}">
+                Login
+            </a>
+
         </div>
 
     </nav>
@@ -152,7 +200,6 @@
                 connect with mentors.
             </p>
 
-            <!-- Get Started button -->
             <a href="{% url 'create_profile' %}" class="btn">
                 Get Started
             </a>
@@ -165,50 +212,74 @@
     <section class="features">
 
         <div class="card">
-            <div class="icon">🎯</div>
 
-            <h3>Skill Exchange</h3>
+            <div class="icon">
+                🎯
+            </div>
+
+            <h3>
+                Skill Exchange
+            </h3>
 
             <p>
                 Share your skills and learn new skills
                 from other students.
             </p>
+
         </div>
 
 
         <div class="card">
-            <div class="icon">👨‍🏫</div>
 
-            <h3>Mentor Booking</h3>
+            <div class="icon">
+                👨‍🏫
+            </div>
+
+            <h3>
+                Mentor Booking
+            </h3>
 
             <p>
                 Connect with mentors and book
                 learning sessions.
             </p>
+
         </div>
 
 
         <div class="card">
-            <div class="icon">📱</div>
 
-            <h3>QR Verification</h3>
+            <div class="icon">
+                📱
+            </div>
+
+            <h3>
+                QR Verification
+            </h3>
 
             <p>
                 Verify your skills using
                 QR-based verification.
             </p>
+
         </div>
 
 
         <div class="card">
-            <div class="icon">📅</div>
 
-            <h3>Events</h3>
+            <div class="icon">
+                📅
+            </div>
+
+            <h3>
+                Events
+            </h3>
 
             <p>
                 Discover and participate in
                 skill-based events.
             </p>
+
         </div>
 
     </section>

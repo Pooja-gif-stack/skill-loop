@@ -1,10 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Received Requests - Skill Loop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skill Requests - Skill Loop</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 40px 20px;
+            color: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 40px;
+        }
+
+        .request-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .request-card h2 {
+            margin-bottom: 15px;
+        }
+
+        .request-card p {
+            margin: 10px 0;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .accept {
+            background: #ffe66d;
+            color: #333;
+        }
+
+        .reject {
+            background: #ff7675;
+            color: white;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
+
+<div class="container">
 
     <h1>📩 Skill Requests</h1>
 
@@ -12,8 +96,11 @@
 
         {% for request in requests %}
 
-            <div>
-                <h2>Request from {{ request.sender.name }}</h2>
+            <div class="request-card">
+
+                <h2>
+                    👤 Request from {{ request.sender.name }}
+                </h2>
 
                 <p>
                     <strong>Skill:</strong>
@@ -25,28 +112,32 @@
                     {{ request.message }}
                 </p>
 
-                <p>
+                <p class="status">
                     <strong>Status:</strong>
                     {{ request.status }}
                 </p>
 
-                <button>Accept</button>
-                <button>Reject</button>
-            </div>
+                <div class="buttons">
+                    <button class="accept">✓ Accept</button>
+                    <button class="reject">✕ Reject</button>
+                </div>
 
-            <hr>
+            </div>
 
         {% endfor %}
 
     {% else %}
 
-        <h2>No requests received yet.</h2>
+        <div class="request-card">
+            <h2>📭 No requests received yet.</h2>
+        </div>
 
     {% endif %}
 
-    <br>
+    <a href="/" class="back">← Back to Home</a>
 
-    <a href="/">Back to Home</a>
+</div>
 
 </body>
+
 </html>
