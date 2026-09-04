@@ -2,12 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Skill Loop</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SkillLoop | Learn • Share • Exchange</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -15,274 +19,800 @@
             font-family: Arial, sans-serif;
         }
 
+
         body {
+
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #062a4d,
+                    #0b4f86,
+                    #1877b9
+                );
+
             color: white;
+
         }
+
+
+        /* ================= NAVBAR ================= */
 
         nav {
+
+            width: 100%;
+
+            padding: 22px 7%;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
-            padding: 20px 60px;
-            background: rgba(0, 0, 0, 0.20);
+
+            background:
+                rgba(5, 28, 55, 0.35);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.10);
+
         }
+
 
         .logo {
-            font-size: 28px;
+
+            font-size: 26px;
+
             font-weight: bold;
+
+            color: white;
+
         }
+
 
         .nav-links {
+
             display: flex;
+
             align-items: center;
+
+            gap: 28px;
+
         }
+
 
         .nav-links a {
-            color: white;
+
             text-decoration: none;
-            margin-left: 25px;
-            font-size: 16px;
-            transition: 0.3s;
+
+            color:
+                rgba(255,255,255,0.85);
+
+            font-size: 15px;
+
         }
+
 
         .nav-links a:hover {
-            color: #ffe66d;
+
+            color: #f4d35e;
+
         }
+
+
+        .login-btn {
+
+            background: #f4d35e;
+
+            color: #082f57 !important;
+
+            padding: 11px 24px;
+
+            border-radius: 25px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* ================= HERO ================= */
 
         .hero {
-            min-height: 65vh;
+
+            min-height: 580px;
+
+            padding: 70px 8%;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             text-align: center;
-            padding: 50px 20px;
+
         }
+
 
         .hero-content {
-            max-width: 800px;
+
+            max-width: 850px;
+
         }
 
-        .hero h1 {
-            font-size: 60px;
-            margin-bottom: 20px;
+
+        .hero-content h1 {
+
+            font-size: 64px;
+
+            line-height: 1.15;
+
+            margin-bottom: 25px;
+
+            font-weight: 700;
+
         }
 
-        .hero h1 span {
-            color: #ffe66d;
+
+        .hero-content h1 span {
+
+            color: #f4d35e;
+
         }
 
-        .hero p {
-            font-size: 20px;
-            line-height: 1.6;
-            margin-bottom: 30px;
+
+        .hero-content p {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            margin-bottom: 35px;
+
+            color:
+                rgba(255,255,255,0.75);
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
         }
 
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background: #ffe66d;
-            color: #333;
+
+        .hero-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+        }
+
+
+        .primary-btn {
+
             text-decoration: none;
-            border-radius: 30px;
+
+            background: #f4d35e;
+
+            color: #082f57;
+
+            padding: 15px 32px;
+
+            border-radius: 28px;
+
             font-weight: bold;
+
             transition: 0.3s;
+
         }
 
-        .btn:hover {
-            transform: scale(1.05);
+
+        .primary-btn:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0,0,0,0.25);
+
         }
+
+
+        .secondary-btn {
+
+            text-decoration: none;
+
+            color: white;
+
+            padding: 15px 32px;
+
+            border-radius: 28px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.35);
+
+            transition: 0.3s;
+
+        }
+
+
+        .secondary-btn:hover {
+
+            background:
+                rgba(255,255,255,0.10);
+
+        }
+
+
+        /* ================= FEATURES ================= */
 
         .features {
-            display: flex;
-            justify-content: center;
+
+            padding: 20px 8% 70px;
+
+        }
+
+
+        .feature-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
-            flex-wrap: wrap;
+
+        }
+
+
+        .feature-card {
+
             padding: 30px;
-        }
 
-        .card {
-            width: 230px;
-            padding: 25px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+            background:
+                rgba(255,255,255,0.10);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.15);
+
+            border-radius: 18px;
+
+            backdrop-filter:
+                blur(10px);
+
             transition: 0.3s;
+
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.22);
+
+        .feature-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            background:
+                rgba(255,255,255,0.16);
+
         }
 
-        .card .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
+
+        .feature-icon {
+
+            font-size: 32px;
+
+            margin-bottom: 18px;
+
         }
 
-        .card h3 {
-            margin-bottom: 10px;
+
+        .feature-card h3 {
+
+            font-size: 19px;
+
+            margin-bottom: 12px;
+
         }
 
-        .card p {
+
+        .feature-card p {
+
+            color:
+                rgba(255,255,255,0.70);
+
+            line-height: 1.7;
+
             font-size: 14px;
-            line-height: 1.5;
+
         }
 
-        @media (max-width: 700px) {
+
+        /* ================= HOW IT WORKS ================= */
+
+        .how-it-works {
+
+            background:
+                rgba(3, 25, 50, 0.35);
+
+            padding: 70px 8%;
+
+            text-align: center;
+
+        }
+
+
+        .how-it-works h2 {
+
+            font-size: 34px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .how-it-works > p {
+
+            color:
+                rgba(255,255,255,0.70);
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .steps {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+
+        }
+
+
+        .step {
+
+            padding: 25px;
+
+        }
+
+
+        .step-number {
+
+            width: 55px;
+
+            height: 55px;
+
+            margin:
+                0 auto 18px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 50%;
+
+            background: #f4d35e;
+
+            color: #082f57;
+
+            font-weight: bold;
+
+            font-size: 20px;
+
+        }
+
+
+        .step h3 {
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .step p {
+
+            color:
+                rgba(255,255,255,0.70);
+
+            line-height: 1.6;
+
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            padding: 25px;
+
+            text-align: center;
+
+            background:
+                rgba(3, 20, 40, 0.65);
+
+            color:
+                rgba(255,255,255,0.65);
+
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 800px) {
 
             nav {
-                padding: 20px;
-                flex-direction: column;
-                gap: 15px;
+
+                padding: 18px 6%;
+
             }
 
-            .nav-links a {
-                margin-left: 10px;
-                margin-right: 10px;
+
+            .nav-links a:not(.login-btn) {
+
+                display: none;
+
             }
 
-            .hero h1 {
-                font-size: 40px;
+
+            .hero-content h1 {
+
+                font-size: 42px;
+
             }
 
-            .hero p {
-                font-size: 17px;
+
+            .hero-buttons {
+
+                flex-wrap: wrap;
+
             }
+
+
+            .feature-grid,
+            .steps {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <nav>
 
-        <div class="logo">
-            🔄 Skill Loop
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+
+        SkillLoop
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="#features">
+
+            Features
+
+        </a>
+
+
+        <a href="#how">
+
+            How It Works
+
+        </a>
+
+
+        <a
+            href="{% url 'login' %}"
+            class="login-btn"
+        >
+
+            Login
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+
+            Learn.
+            <span>Share.</span>
+            Exchange.
+
+        </h1>
+
+
+        <p>
+
+            Welcome to SkillLoop — a collaborative platform
+            where students can share their knowledge,
+            learn new skills and grow together.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="{% url 'login' %}"
+                class="primary-btn"
+            >
+
+                Get Started →
+
+            </a>
+
+
+            <a
+                href="#features"
+                class="secondary-btn"
+            >
+
+                Explore Features
+
+            </a>
+
         </div>
 
-        <div class="nav-links">
+    </div>
 
-            <a href="{% url 'home' %}">
-                Home
-            </a>
-
-            <a href="{% url 'reciprocal_matches' %}">
-                Skills
-            </a>
-
-            <a href="{% url 'received_requests' %}">
-                Requests
-            </a>
-
-            <a href="{% url 'login' %}">
-                Login
-            </a>
-
-        </div>
-
-    </nav>
+</section>
 
 
-    <section class="hero">
 
-        <div class="hero-content">
+<!-- ================= FEATURES ================= -->
 
-            <h1>
-                Learn. Share. <span>Exchange.</span>
-            </h1>
+<section
+    class="features"
+    id="features"
+>
 
-            <p>
-                Welcome to Skill Loop — a platform where students
-                can exchange skills, learn from each other and
-                connect with mentors.
-            </p>
-
-            <a href="{% url 'create_profile' %}" class="btn">
-                Get Started
-            </a>
-
-        </div>
-
-    </section>
+    <div class="feature-grid">
 
 
-    <section class="features">
+        <!-- SKILL MATCHING -->
 
-        <div class="card">
+        <div class="feature-card">
 
-            <div class="icon">
+            <div class="feature-icon">
+
                 🎯
+
             </div>
 
+
             <h3>
+
+                Skill Matching
+
+            </h3>
+
+
+            <p>
+
+                Discover people whose skills
+                match what you want to learn.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- SKILL EXCHANGE -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                🤝
+
+            </div>
+
+
+            <h3>
+
                 Skill Exchange
+
             </h3>
 
+
             <p>
-                Share your skills and learn new skills
-                from other students.
+
+                Share your knowledge and
+                learn from other students.
+
             </p>
 
         </div>
 
 
-        <div class="card">
 
-            <div class="icon">
-                👨‍🏫
+        <!-- MENTOR BOOKING -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                🎓
+
             </div>
 
+
             <h3>
+
                 Mentor Booking
+
             </h3>
 
+
             <p>
-                Connect with mentors and book
-                learning sessions.
+
+                Find experienced mentors and
+                book sessions to learn new skills.
+
             </p>
 
         </div>
 
 
-        <div class="card">
+    </div>
 
-            <div class="icon">
-                📱
+</section>
+
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section
+    class="how-it-works"
+    id="how"
+>
+
+    <h2>
+
+        How SkillLoop Works
+
+    </h2>
+
+
+    <p>
+
+        Learn and share skills in three simple steps.
+
+    </p>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-number">
+
+                1
+
             </div>
 
+
             <h3>
-                QR Verification
+
+                Create Profile
+
             </h3>
 
+
             <p>
-                Verify your skills using
-                QR-based verification.
+
+                Add the skills you know
+                and the skills you want to learn.
+
             </p>
 
         </div>
 
 
-        <div class="card">
 
-            <div class="icon">
-                📅
+        <div class="step">
+
+            <div class="step-number">
+
+                2
+
             </div>
 
+
             <h3>
-                Events
+
+                Find Matches
+
             </h3>
 
+
             <p>
-                Discover and participate in
-                skill-based events.
+
+                Discover users with
+                matching skills.
+
             </p>
 
         </div>
 
-    </section>
+
+
+        <div class="step">
+
+            <div class="step-number">
+
+                3
+
+            </div>
+
+
+            <h3>
+
+                Learn & Grow
+
+            </h3>
+
+
+            <p>
+
+                Connect with others,
+                exchange skills and grow together.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 SkillLoop |
+    Learn • Share • Exchange
+
+</footer>
+
 
 </body>
 

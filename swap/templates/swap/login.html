@@ -2,12 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Login - Skill Loop</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | SkillLoop</title>
+
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -15,104 +20,318 @@
             font-family: Arial, sans-serif;
         }
 
+
         body {
+
             min-height: 100vh;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #062a4d,
+                    #0b4f86,
+                    #1877b9
+                );
+
+            color: white;
+
+            padding: 25px;
+
         }
+
+
+        /* ================= LOGIN CONTAINER ================= */
 
         .login-card {
-            width: 380px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.15);
+
+            width: 100%;
+
+            max-width: 420px;
+
+            padding: 45px 40px;
+
+            background:
+                rgba(255, 255, 255, 0.12);
+
             backdrop-filter: blur(15px);
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-            color: white;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.18);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(0, 0, 0, 0.30);
+
         }
+
+
+        /* ================= LOGO ================= */
 
         .logo {
+
             text-align: center;
-            font-size: 30px;
+
+            font-size: 32px;
+
             font-weight: bold;
-            margin-bottom: 10px;
+
+            margin-bottom: 12px;
+
         }
+
+
+        .logo span {
+
+            color: #f4d35e;
+
+        }
+
 
         .subtitle {
+
             text-align: center;
-            margin-bottom: 30px;
-            opacity: 0.9;
+
+            color:
+                rgba(255, 255, 255, 0.75);
+
+            line-height: 1.6;
+
+            margin-bottom: 32px;
+
+            font-size: 15px;
+
         }
+
+
+        /* ================= FORM ================= */
 
         label {
+
             display: block;
+
             margin-bottom: 8px;
+
+            font-size: 14px;
+
             font-weight: bold;
+
         }
+
 
         input {
+
             width: 100%;
-            padding: 13px 15px;
-            margin-bottom: 20px;
+
+            padding: 14px 16px;
+
+            margin-bottom: 22px;
+
             border: none;
-            border-radius: 12px;
+
             outline: none;
+
+            border-radius: 10px;
+
+            background: white;
+
+            color: #1f2937;
+
             font-size: 15px;
+
         }
+
 
         input:focus {
-            box-shadow: 0 0 0 3px rgba(255, 230, 109, 0.5);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(244, 211, 94, 0.45);
+
         }
+
+
+        /* ================= LOGIN BUTTON ================= */
 
         .btn {
+
             width: 100%;
-            padding: 14px;
+
+            padding: 15px;
+
             border: none;
+
             border-radius: 30px;
-            background: #ffe66d;
-            color: #333;
+
+            background: #f4d35e;
+
+            color: #082f57;
+
             font-size: 16px;
+
             font-weight: bold;
+
             cursor: pointer;
+
+            transition: 0.3s;
+
         }
+
 
         .btn:hover {
-            transform: scale(1.03);
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 0, 0, 0.25);
+
         }
+
+
+        /* ================= BACK BUTTON ================= */
 
         .back {
+
             display: block;
+
             text-align: center;
-            margin-top: 20px;
-            color: white;
+
+            margin-top: 25px;
+
             text-decoration: none;
+
+            color:
+                rgba(255, 255, 255, 0.80);
+
+            font-size: 14px;
+
+            transition: 0.3s;
+
         }
 
+
         .back:hover {
-            color: #ffe66d;
+
+            color: #f4d35e;
+
         }
+
+
+        /* ================= DJANGO MESSAGES ================= */
+
+        .message {
+
+            padding: 12px;
+
+            margin-bottom: 20px;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            background:
+                rgba(255, 255, 255, 0.15);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.15);
+
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 500px) {
+
+            .login-card {
+
+                padding:
+                    35px 25px;
+
+            }
+
+
+            .logo {
+
+                font-size: 27px;
+
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
+
     <div class="login-card">
 
+
+        <!-- LOGO -->
+
         <div class="logo">
-            🔄 Skill Loop
+
+            Skill<span>Loop</span>
+
         </div>
 
+
+        <!-- SUBTITLE -->
+
         <p class="subtitle">
-            Welcome back! Login to continue.
+
+            Welcome back! Login to continue
+            your skill-sharing journey.
+
         </p>
+
+
+        <!-- DJANGO MESSAGES -->
+
+        {% if messages %}
+
+            {% for message in messages %}
+
+                <div class="message">
+
+                    {{ message }}
+
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        <!-- LOGIN FORM -->
 
         <form method="POST">
 
             {% csrf_token %}
 
-            <label>Email</label>
+
+            <label>
+
+                Email
+
+            </label>
+
+
             <input
                 type="email"
                 name="email"
@@ -120,7 +339,14 @@
                 required
             >
 
-            <label>Password</label>
+
+            <label>
+
+                Password
+
+            </label>
+
+
             <input
                 type="password"
                 name="password"
@@ -128,17 +354,34 @@
                 required
             >
 
-            <button type="submit" class="btn">
-                Login
+
+            <button
+                type="submit"
+                class="btn"
+            >
+
+                Login →
+
             </button>
+
 
         </form>
 
-        <a href="{% url 'home' %}" class="back">
+
+        <!-- BACK TO HOME -->
+
+        <a
+            href="{% url 'home' %}"
+            class="back"
+        >
+
             ← Back to Home
+
         </a>
 
+
     </div>
+
 
 </body>
 
